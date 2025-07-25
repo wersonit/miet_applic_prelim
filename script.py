@@ -72,6 +72,8 @@ for i in range(1, 31, 1):
   for val in data[main_key]:
     perm = False if val[permission_idx] is None else True
     surp = False if val[surpass_idx] is None else True
+    if surp:
+      val[score_idx] = 1000 #условность, чтобы не усложнять сортировку
     if main_data.get(val[uuid_idx]) is None:
       main_data[val[uuid_idx]] = {name: {permission: perm, score: val[score_idx], priority: val[priority_idx], surpass: surp}}
     else:
