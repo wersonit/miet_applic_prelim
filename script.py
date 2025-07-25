@@ -56,7 +56,7 @@ for i in range(1, 31, 1):
   priority_idx = None
 
   cols_key = 'columns'
-  for idx, dic in enumerate(data[params_key]['columns']):
+  for idx, dic in enumerate(data[params_key][cols_key]):
     
     if 'Номер личного дела' in dic.values():
         uuid_idx = idx
@@ -84,7 +84,7 @@ def sort_main(main_data):
 
     sorted_directions = dict(sorted(
         applicant.items(),
-        key=lambda item: item[1]["Приоритет"]
+        key=lambda item: item[1][priority]
     ))
 
     applicant.clear()
@@ -107,7 +107,7 @@ def sort_res(result_data, dir):
 
   sorted_dir = dict(sorted(
       _items.items(),
-      key=lambda item: item[1]["Сумма баллов"],
+      key=lambda item: item[1][score],
       reverse=True
   ))
 
