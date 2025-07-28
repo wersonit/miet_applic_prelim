@@ -6,7 +6,6 @@
 import requests
 import json
 import os
-import copy
 
 subms = [i for i in range (1, 60, 1)]
 extras = [354, 355, 356]
@@ -138,8 +137,6 @@ def clean_abits(abits_data):
       i += 1
   
   return abits_data
-
-_abits_data = copy.deepcopy(abits_data)
 
 abits_data = sort_abits(abits_data)
 abits_data = clean_abits(abits_data)
